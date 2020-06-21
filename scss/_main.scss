@@ -1,0 +1,632 @@
+.main-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  overflow: hidden;
+
+    @media($sm) {
+background-color: yellow;
+    }
+}
+
+.left-block{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 0;
+  background-color:#FEFEFE;
+  overflow: hidden;
+
+    @media($sm) {
+      display: none;
+    }
+
+  &__inner{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 83.5%;
+    height: 70%;
+    background-color: #fff;
+    box-shadow: 0 0 4rem #0000002a;
+  }
+}
+
+.right-block{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 0 4rem #0000002a;
+
+  @media($sm) {
+    display: none;
+  }
+}
+
+
+
+.title{
+  position: absolute;
+  top: 40.5%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  font-family: "Philosopher", "Arial", sans-serif;
+  padding-left: 50px;
+  font-size: 140px;
+  font-weight: normal;
+  letter-spacing: 0.355em;
+  color: #fff;
+  z-index: 3;
+  transition: all 0.5s ease-in 0.3s;
+
+  @media($lg) {
+    font-size: 120px;
+  }
+  @media($md) {
+    font-size: 90px;
+  }
+  @media($sm) {
+    display: none;
+  }
+}
+
+.gallery-item {
+  position: absolute;
+  box-shadow: 0 0 4rem #0000002a;
+  line-height: 0;
+  @include fadeIn;
+
+  @media($sm) {
+    box-shadow: unset;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F7E611;
+    opacity: 0.9;
+
+    @media($sm) {
+      opacity: 0.6;
+    }
+  
+  }
+
+  &_first{
+    width: 55.5%;
+    top: 12%;
+    left: 5.5%;
+    transition: all 0.5s ease-out 0.7s;
+    z-index: 1;
+
+    &::after {
+      @media($sm) {
+        opacity: 0.8;
+      }
+    }
+
+    @media($md) {
+      top: 12%;
+      left: 5.6%;
+    }
+
+    @media($sm) {
+      width: 350px;
+      top: 14.5%;
+      left: unset;
+      right:26%;
+      z-index: 1;
+    }
+  }
+
+  &_last{
+    width: 59.8%;
+    top: 23%;
+    left: 34.7%;//не right, чтобы не прилипало к правому краю при анимации.
+    transition: all 0.5s ease-in 0.1s;
+    z-index:2;
+
+    @media($sm) {
+      position: fixed;
+      width: 608px;
+      left:50%;//центровка
+      margin: auto;
+      top: unset;
+      bottom: -4%;
+      transform:translate(-50%, 0);//центровка
+    }
+  }
+}
+
+.menuContainer{
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  top: 12.5%;
+  right: 5.5%;
+  background-image: url('../img/menuOuter.svg');
+
+  @media($sm) {
+    top: 0;
+    right: 0;
+    background-image: none;
+  }
+
+    &__burger{
+    position: absolute;
+    width: 20px;
+    height: 14px;
+    top: 38%;
+    right: 30%;
+    background-image: url('../img/burger.svg');
+  }
+}
+
+.logo-container{
+  position: absolute;
+  width: 213px;
+  bottom: 12%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  z-index: 5;
+  line-height: 0;
+
+  @media($sm) {
+    position: fixed;
+    width: 150px;
+    bottom: -4%;
+  } 
+  
+  &::after{
+    position: absolute;
+    content: '';
+    bottom: -10px;
+    left: 0;
+    width: 213px;
+    height: 10px;
+    background-color: #F7E611;
+
+    @media($sm) {
+      width: 150px;
+    } 
+  }
+}
+
+.slider{
+  position: absolute;
+  right: 16.5%;
+  top: 60.5%;
+  width: 215px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  z-index: 5;
+  
+  @media($md) {
+    right: 15.3%;
+    top: 60.5%;
+  }
+
+  @media($sm) {
+    right: 0;
+    left:0;
+    margin: auto;
+    top: 69%;
+    width: 90%;
+  }
+
+  &__control {
+    background-image: url(../img/arrow.svg);
+    background-position: center;
+    width: 20px;
+    height: 36px;
+  }
+    
+  &__control_right {
+    transform: rotate(180deg);
+  }
+}
+
+
+.figure-num{
+  position: absolute;
+  transition: all 0.5s ease-out 0.5s;
+  font-family: 'Geometria';
+
+  &_13{
+    right: 23.9%;
+    top: 69%;
+    font-size: 45px;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 0.07em;
+    z-index: 5;
+
+    @media ($md) {
+      right: 26.5%;
+      top: 75%;
+      font-size: 25px;
+    }
+
+    @media ($sm) {
+      right: 5.5%;
+      top: 92%;
+      font-size: 20px;
+    }
+  }
+
+  &_7{
+    right: 22.5%;
+    top: 74%;
+    width: 15px;
+    border-top: 3px solid black;
+    font-size: 17px;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1.5em;
+    z-index: 5;
+
+    @media($md){
+      right: 25%;
+      top: 78%;
+      width: 10px;
+      font-size: 10px;
+      border-top: 2px solid black;
+    }
+
+    @media($sm){
+      display: none;
+    }
+  }
+  
+  &_51{
+    left: 38.7%;
+    top: 16%;
+    transform: rotate(-90deg);
+    font-size: 31px;
+    font-weight: 900;
+    z-index: 1;
+
+    @media($sm){
+      display: none;
+    }
+
+  }
+  
+  &_1{
+    left: 15.5%;
+    top: 180px;
+    font-size: 14px;
+    font-weight: 300;
+    z-index: 1;
+
+    @media($sm){
+      display: none;
+    }
+  }
+  
+  &_3{
+    left: 15.5%;
+    top: 260px;
+    font-size: 14px;
+    font-weight: 300;
+    z-index: 1;
+
+    @media($sm){
+      display: none;
+    }
+  }
+}
+
+.figure-letters {
+  position: absolute;
+  font-family: 'Geometria';
+  font-size: 80px;
+  font-weight: 500;
+  color: transparent;
+  -webkit-text-stroke: 1px #000;
+  transition: all 0.5s ease-in 0.5s;
+
+  &_A{
+    right: 27.5%;
+    top: 4.5%;
+    z-index: 2;
+
+    @media ($sm) {
+      right: 64%;
+      top: 38.5%;
+      font-size: 60px;
+    }
+  }
+
+  &_E{
+    right: 16.4%;
+    top: 15%;
+    z-index: 0;
+
+    @media ($md) {
+      top: 14%;
+    }
+    @media ($sm) {
+      position: absolute;
+      right: 20%;
+      top: 22.5%;
+      font-size: 60px;
+      z-index: 1;
+    }
+  }
+  
+  &_G{
+    right: 21.7%;
+    top: 24.5%;
+    z-index: 2;
+    
+    @media ($md) {
+      right: 25%;
+      top: 22%;
+    }
+
+    @media ($sm) {
+      right: 39%;
+      top: 205px;
+      font-size: 60px;
+      z-index: 1;
+    }
+  }
+}
+.figure-letterCorner{
+  position: absolute;
+  left: 33px;
+  top: 28px;
+  font-size: 32px;
+  font-family: 'Philosopher';
+  font-weight: bold;
+  transition: all 0.5s ease-in-out 0.5s;
+  z-index: 2;
+
+  @media ($sm) {
+    left: 20px;
+    top: 9px;
+  }
+}
+
+.figure-textName {
+  position: absolute;
+  font-family: 'Philosopher';
+  font-weight: bold;
+  font-size: 25px;
+  transition: all 0.5s ease-in-out 0.5s;
+  z-index: 2;
+
+  @media($sm){
+    display: none;
+  }
+
+  &_A{
+    left: 18.5%;
+    bottom: 4%;
+  }
+  
+  &_F{
+    left: 23%;
+    bottom: 8%;
+  }
+  
+  &_F2{
+    left: 27.5%;
+    bottom: 2.5%;
+  }
+  
+  &_I{
+    left: 31.5%;
+    bottom: 6%;
+  }
+  
+  &_N{
+    left: 36.1%;
+    bottom: 1%;
+  }
+  
+  &_A3{
+    right: 34.3%;
+    bottom: 6.5%;
+  }
+  
+  &_G{
+    right: 27.2%;
+    bottom: 5.5%;
+    text-shadow: -5px 2px 1px grey;
+  }
+  
+  &_E{
+    right: 19.7%;
+    bottom: 2.3%;
+  }
+}
+
+.figure-tagline{
+  position: absolute;
+  font-family: 'Philosopher';
+  font-weight: bold;
+  font-size: 25px;
+  transition: all 0.5s ease-in-out 0.5s;
+  z-index: 2;
+  left: 19.8%;
+  top: 485px;
+  transform: rotate(-90deg);
+  font-size: 9px;
+  font-style: italic;
+
+  @media($lg) {
+    left: 18.8%;
+  }
+
+  @media ($md) {
+    left: -2%;
+    top: 40%;
+  }
+  
+  @media ($sm) {
+    left: -6%;
+    top: 43%;
+  }
+}
+
+.figure-rect{
+  position: absolute;
+  top: 33.2%;
+  left: 24.2%;
+  width: 177px;
+  z-index: 2;
+
+  @media ($md) {
+  }
+
+  @media ($sm) {
+    position: fixed;
+    top: -95px;
+    left: unset;
+    right: -77px;
+    transform: rotate(90deg);
+    z-index: 0;
+  }
+}
+
+.figure-circle{
+  position: absolute;
+  left: 40.7%;
+  top: 216px;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index: 2;
+
+  @media ($lg) {
+    left: 45.7%;
+  }
+  
+  @media($md){
+    display: none;
+  }
+  
+  &__text{
+    width: 55px;
+    text-align: left;
+    font-family: 'Geometria';
+    font-size: 17px;
+    color: #fff;
+  }
+}
+  
+.figure-yellowBlock{
+  position: absolute;
+  width: 138px;
+  height: 48%;
+  right: 19.3%;
+  top: 32%;
+  background-color: #F7E611;
+  box-shadow: 0 0 4rem #0000002a;
+  z-index: 2;
+
+  @media ($md) {
+    width: 110px;
+    right: 21.3%;
+    top: 35%;
+  }
+
+  @media ($sm) {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    right: -118px;
+    top: unset;
+    bottom: -118px;
+    transform: rotate(45deg);
+    box-shadow: unset;
+  }
+}
+
+.figure-svgFilled {
+  position: absolute;
+  fill: #000;
+  fill-rule: evenodd;
+  z-index: 2;
+
+  &_A{
+    left: 13.5%;
+    bottom: 10.4%;
+    width: 22px;
+    -webkit-text-stroke: 0 0 0.5rem #000;
+
+    @media($md){
+      display: none;
+    }
+  }
+
+  &_A2{
+    right: 15%;
+    bottom: 5.2%;
+    width: 22px;
+
+    @media ($md) {
+      bottom: 60%;
+      right: 8.5%;
+    }
+
+    @media ($sm) {
+      right: 8.5%;
+      top: 40%;
+    }
+  }
+}
+
+.figure-svgNoFill {
+  position: absolute;
+  fill: none;
+  stroke: #000;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill-rule: evenodd;
+  z-index: 2;
+
+  &_A{
+    left: 31.5%;
+    bottom: 0;
+    width: 22px;
+
+    @media ($md) {
+      bottom: 30%;
+      left: 15.5%;
+    }
+
+    @media ($sm) {
+      left: 14%;
+      top: 90.5%;
+    }
+  }
+
+  &_A2{
+    right: 31.5%;
+    bottom: 2.7%;
+    width: 22px;
+
+    @media($md){
+      display: none;
+    }
+  }
+}
